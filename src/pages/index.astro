@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Cotización Dólar">
+	<section>
+		<Card />
+	</section>
+</Layout>
+
+<style>
+	section {
+		display: flex;
+		gap: 10px;
+	}
+
+	@media screen and (max-width: 767px) {
+		section {
+			flex-direction: column;
+		}
+	}
+</style>

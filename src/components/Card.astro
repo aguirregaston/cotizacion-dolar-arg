@@ -1,0 +1,136 @@
+---
+
+---
+<div class="card">
+	<div class="section-one-card">
+		<h1 id="blue">Dólar Blue<i class="iconoir-coin"></i></h1>
+	</div>
+	<div class="section-two-card">
+		<div class="box-span">
+			<span id="compra1"></span>
+			<p>Compra</p>
+		</div>
+		<div class="box-span">
+			<span id="venta1"></span>
+			<p>Venta</p>
+		</div>
+	</div>
+	<div class="section-three-card">
+		<p id="data">Valores obtenidos por API de Cotizaciones<br>Monetarias en <b>Argentina</b></p>
+	</div>
+</div>
+
+<div class="card">
+	<div class="section-one-card">
+		<h1 id="oficial">Dólar Oficial<i class="iconoir-coin"></i></h1>
+	</div>
+	<div class="section-two-card">
+		<div class="box-span">
+			<span id="compra2"></span>
+			<p>Compra</p>
+		</div>
+		<div class="box-span">
+			<span id="venta2"></span>
+			<p>Venta</p>
+		</div>
+	</div>
+	<div class="section-three-card">
+		<p id="data">Valores obtenidos por API de Cotizaciones<br>Monetarias en <b>Argentina</b></p>
+	</div>
+</div>
+
+<style>
+	.card {
+		width: 350px;
+		background: var(--bg-card);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border-right: 5px solid var(--color-gray);
+		border-bottom: 5px solid var(--color-gray);
+	}
+
+	.section-one-card {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px 0;
+		font-size: 23px;
+		gap: 5px;
+		border-bottom: 1px solid var(--color-gray);
+	}
+
+	.section-one-card h1 {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	}
+
+	#blue {
+		color: var(--color-blue);
+	}
+
+	#oficial {
+		color: var(--color-orange);
+	}
+
+	.section-two-card {
+		display: flex;
+		padding: 10px 0;
+	}
+
+	.box-span {
+		width: 150px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.box-span span {
+		font-size: 25px;
+		color: var(--color-span);
+	}
+
+	.section-two-card p {
+		color: var(--color-gray2);
+	}
+
+	.section-three-card {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px 0;
+		border-top: 1px solid var(--color-gray);
+	}
+
+	#data {
+		text-align: center;
+		font-size: 9px;
+		color: var(--color-gray2);
+	}
+</style>
+
+<script>
+	const fetchData = async (url, compraId, ventaId) => {
+    const response = await fetch(url);
+    const data = await response.json();
+    document.getElementById(compraId).innerHTML = data.compra;
+    document.getElementById(ventaId).innerHTML = data.venta;
+  };
+  
+  fetchData(
+    "https://argentina-monetary-quotes-api.up.railway.app/api/dolar/blue",
+    "compra1",
+    "venta1"
+  );
+  
+  fetchData(
+    "https://argentina-monetary-quotes-api.up.railway.app/api/dolar/oficial",
+    "compra2",
+    "venta2"
+  );
+</script>
