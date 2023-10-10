@@ -115,22 +115,12 @@
 </style>
 
 <script>
-	const fetchData = async (url, compraId, ventaId) => {
-    	const response = await fetch(url);
-    	const data = await response.json();
-    	document.getElementById(compraId).innerHTML = data.blue.value_buy;
-    	document.getElementById(ventaId).innerHTML = data.blue.value_sell;
-  };
-  
-  fetchData(
-    "https://api.bluelytics.com.ar/v2/latest",
-    "compra1",
-    "venta1"
-  );
-  
-  fetchData(
-    "https://api.bluelytics.com.ar/v2/latest",
-    "compra2",
-    "venta2"
-  );
+  fetch("https://api.bluelytics.com.ar/v2/latest")
+  .then(res => res.json())
+  .then(res => {
+    document.getElementById("compra1").innerHTML = res.blue.value_buy;
+    document.getElementById("venta1").innerHTML = res.blue.value_sell;
+    document.getElementById("compra2").innerHTML = res.oficial.value_buy;
+    document.getElementById("venta2").innerHTML = res.oficial.value_sell;
+})
 </script>
