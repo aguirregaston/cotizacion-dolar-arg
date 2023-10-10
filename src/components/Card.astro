@@ -116,10 +116,10 @@
 
 <script>
 	const fetchData = async (url, compraId, ventaId) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    document.getElementById("compraId").innerHTML = res.blue.value_buy;
-    document.getElementById("ventaId").innerHTML = res.blue.value_sell;
+    	const response = await fetch(url);
+    	const data = await response.json();
+    	document.getElementById("compraId").innerHTML = response.blue.value_buy;
+    	document.getElementById("ventaId").innerHTML = response.blue.value_sell;
   };
   
   fetchData(
@@ -129,7 +129,7 @@
   );
   
   fetchData(
-    "https://argentina-monetary-quotes-api.up.railway.app/api/dolar/oficial",
+    "https://api.bluelytics.com.ar/v2/latest",
     "compra2",
     "venta2"
   );
