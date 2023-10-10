@@ -118,8 +118,8 @@
 	const fetchData = async (url, compraId, ventaId) => {
     	const response = await fetch(url);
     	const data = await response.json();
-    	document.getElementById("compraId").innerHTML = response.blue.value_buy;
-    	document.getElementById("ventaId").innerHTML = response.blue.value_sell;
+    	document.getElementById("compraId").innerHTML = data.blue.value_buy;
+    	document.getElementById("ventaId").innerHTML = data.blue.value_sell;
   };
   
   fetchData(
