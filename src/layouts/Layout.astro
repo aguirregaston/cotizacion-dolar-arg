@@ -16,6 +16,7 @@ const { title } = Astro.props;
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';" />
 	</head>
 	<body>
 		<slot />
